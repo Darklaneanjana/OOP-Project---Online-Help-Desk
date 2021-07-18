@@ -1,2 +1,2 @@
 # OOP_Project
-Group members : Anjana, Lakshika, Sachini, tharu***
+Group members : Anjana, Lakshika, Sachini, tharushika
