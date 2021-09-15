@@ -21,3 +21,5 @@ public class HelloControllerIT {
         assertThat(response.getBody()).isEqualTo("Greetings from Spring Boot!");
     }
 }
+
+// create java class
