@@ -1,0 +1,11 @@
+create table Client (
+    id int not null primary key auto_increment,
+    name varchar(255) not null,
+    email varchar(255) not null,
+    phone varchar(255) not null,
+    address varchar(255) not null,
+    city varchar(255) not null,
+    state varchar(255) not null,
+    zip varchar(255) not null,
+    country varchar(255) not null,
+    company varchar(255) not null,
