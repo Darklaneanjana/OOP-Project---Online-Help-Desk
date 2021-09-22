@@ -1,6 +1,6 @@
 .metadata
-target/
 target
+target/
 bin/
 tmp/
 *.tmp
@@ -12,6 +12,9 @@ local.properties
 .loadpath
 .recommenders
 .idea
+.class
+.MF
+
 # External tool builders
 .externalToolBuilders/
 
@@ -56,3 +59,5 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+*.class
+*.MF

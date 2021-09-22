@@ -16,9 +16,13 @@ public class CTicket extends HttpServlet {
         String priority = request.getParameter("priority");
 
         boolean isTrue = DBctrl.createTicket(name,title,description,priority);
-        if(isTrue == true){
-            RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
-            dis.forward(request,response);
+        if(isTrue == true) {
+            RequestDispatcher dis = request.getRequestDispatcher("success.jsp");
+            dis.forward(request, response);
+        } else {
+            RequestDispatcher dis2 = request.getRequestDispatcher("unsuccess.jsp");
+            dis2.forward(request, response);
         }
     }
 }
+
