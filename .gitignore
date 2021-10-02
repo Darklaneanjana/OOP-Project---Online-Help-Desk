@@ -4,12 +4,14 @@ target/
 bin/
 tmp/
 build/
+
 *.tmp
 *.bak
 *.swp
 *~.nib
 local.properties
 .settings/
+.settings
 .loadpath
 .recommenders
 .idea
