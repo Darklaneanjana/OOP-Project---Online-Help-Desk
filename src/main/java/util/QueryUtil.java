@@ -39,7 +39,7 @@ public class QueryUtil extends CommonUtil {
 		 * Read the TicketQuery.xml file and read each query node into node
 		 * list. It refers tag name query
 		 */
-		nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "/wtpwebapps/HelpDesk/WEB-INF/TicketQuery.xml"))
+		nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "/wtpwebapps/oop2/WEB-INF/TicketQuery.xml"))
 				.getElementsByTagName(CommonConstants.TAG_NAME);
 
 		/*

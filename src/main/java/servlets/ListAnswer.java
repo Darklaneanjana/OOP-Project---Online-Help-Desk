@@ -32,6 +32,7 @@ public class ListAnswer extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+
 			
 	}
 
@@ -41,10 +42,14 @@ public class ListAnswer extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("listAnswers.jsp");
-		dispatcher.forward(request, response);
+		if((request.getAttribute("userType") == "analyst") || request.getAttribute("userType") == "admin") {
+			response.setContentType("text/html");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listAnswers.jsp");
+			dispatcher.forward(request, response);
+		}else {
+		request.setAttribute("error", "You are not authorized");
+	     getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		}
 	}
 
 }

@@ -42,12 +42,12 @@ public class DeleteAnswer extends HttpServlet {
 
 		response.setContentType("text/html");
 
-		String tid = request.getParameter("tid");			
+		String aid = request.getParameter("aid");			
 		
 		AnswerService answerService = new AnswerServiceImpl();
-		answerService.removeAnswer(Integer.parseInt(tid));
+		answerService.removeAnswer(Integer.parseInt(aid));
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("listAnswers.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listAnswers.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -143,11 +143,13 @@ public class AnswerServiceImpl implements AnswerService {
 			while (resultSet.next()) {
 				Answer answer = new Answer();
 				answer.setAid(resultSet.getInt(1));
-				answer.setTitle(resultSet.getString(2));
-				answer.setAuthor(resultSet.getInt(5));
-				answer.setContent(resultSet.getString(3));
-				answer.setCreated_at(resultSet.getTimestamp(10));
-				answer.setUpdated_at(resultSet.getTimestamp(8));
+				answer.setAuthor(resultSet.getInt(2));
+				answer.setTitle(resultSet.getString(3));
+				answer.setCreated_at(resultSet.getTimestamp(4));
+				answer.setUpdated_at(resultSet.getTimestamp(5));
+				answer.setContent(resultSet.getString(6));
+				
+				
 				answerList.add(answer);
 			}
 

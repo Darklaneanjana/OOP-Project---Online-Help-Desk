@@ -134,6 +134,8 @@ tfoot th {
     padding-left: 160px;
   }
 }
+
+
 @media (min-width: 720px) {
   table {
     display: table;
@@ -181,4 +183,8 @@ tfoot th {
   .select {
     padding: 10px;
   }
+}
+.tdd{
+  height:80px;
+  overflow:hidden;
 }

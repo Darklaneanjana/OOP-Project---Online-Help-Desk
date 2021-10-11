@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Answer;
-import services.AnswerServiceImpl;
 import services.AnswerService;
+import services.AnswerServiceImpl;
 
 /**
  * Servlet implementation class LoginServlet
@@ -25,24 +25,13 @@ public class GetAnswer extends HttpServlet {
 	public GetAnswer() {
 		super();
 	}
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		
-		String tid = request.getParameter("tid");
-		tid = "4";
-		System.out.println(tid);
-		AnswerService answerService = new AnswerServiceImpl();
-		Answer answer = answerService.getAnswerByID(Integer.parseInt(tid));
-
-		request.setAttribute("answer", answer);
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			throws ServletException, IOException { 
 	}
 
 	/**
@@ -51,16 +40,15 @@ public class GetAnswer extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html");
+
+response.setContentType("text/html");
 		
-		String tid = request.getParameter("tid");
-		tid = "4";
-		System.out.println(tid);
+		String aid = request.getParameter("aid");
 		AnswerService answerService = new AnswerServiceImpl();
-		Answer answer = answerService.getAnswerByID(Integer.parseInt(tid));
+		Answer answer = answerService.getAnswerByID(Integer.parseInt(aid));
 
 		request.setAttribute("answer", answer);
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/answer.jsp").forward(request, response);
 	}
 
 }

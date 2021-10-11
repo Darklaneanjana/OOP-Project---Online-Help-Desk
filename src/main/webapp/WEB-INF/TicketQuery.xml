@@ -22,28 +22,48 @@
             DROP TABLE IF EXISTS Ticket]]>
 	</query>
 	<query id="insertTicket">
-        <![CDATA[insert into ticket (title, description, priority,Impact,OperatCat,client_id)  values (?, ?, ?, ?, ?, ?)
+        <![CDATA[insert into ticket (title, description, priority,Impact,OperatCat,client_id,issueType)  values (?, ?, ?, ?, ?, ?, ?)
 ;      ]]>
 	</query>
+
 	<query id="ticketById">
          <![CDATA[select * from ticket where id  = ?
     ]]>
 	</query>
+	<query id="answerById">
+         <![CDATA[select * from knowledgebase where id  = ?
+    ]]>
+
+	</query>
 	<query id="allTickets">
          <![CDATA[select * from ticket;]]>
 	</query>
-	<query id="remove_employee">
+	<query id="allAnswers">
+		 <![CDATA[select * from knowledgebase;]]>
+	</query>
+
+	<query id="remove_ticket">
          <![CDATA[        
-            delete from employee where employee.employeeID = ?
+            delete from ticket where ticket.id = ?
         ]]>
 	</query>
-	<query id="update_employee">
+	<query id="removeAnswer">
          <![CDATA[        
-            update Ticket as d set e.employeeName = ?, e.designation = ?, e.faculty = ?, e.department = ?, e.add = ?, e.qualifications = ?, e.gender = ? 
-            where e.employeeID = ?
+            delete from knowledgebase where id = ?
         ]]>
 	</query>
-	<query id="employee_ids">
+	
+	<query id="update_Ticket">
+         <![CDATA[update Ticket set title= ?, designation = ?, faculty = ?, e.department = ?, e.add = ?, e.qualifications = ?, e.gender = ?,updated_at = CURRENT_TIMESTAMP          where ticket.id = ?
+        ]]>
+	</query>
+	<query id="update_answer">
+         <![CDATA[update knowledgebase set title= ?, designation = ?, faculty = ?, e.department = ?, e.add = ?, e.qualifications = ?, e.gender = ?,updated_at = CURRENT_TIMESTAMP          where ticket.id = ?
+        ]]>
+	</query>
+
+
+	<query id="ticket_ids">
          <![CDATA[        
             select t.tid from Ticket as t]]>
 	</query>

@@ -1,7 +1,7 @@
-<%@page import="model.Ticket"%>
+<%@page import="model.Answer"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="services.TicketServiceImpl"%>
-<%@page import="services.TicketService"%>
+<%@page import="services.AnswerServiceImpl"%>
+<%@page import="services.AnswerService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -12,26 +12,33 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/list.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-		<title>Ticket List</title>
+		<title>Answer List</title>
 	</head>
+<!-- <%
 
+
+	if((session.getAttribute("type") != "analyst") || (session.getAttribute("type") != "admin")) {
+		request.setAttribute("error", "You are not authorized");
+		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+	}
+%> -->
 <body>
 
 					
 					
 	<div class="container">
 		<main>
-			<a href="index.jsp">Add Ticket</a>
+			<a href="index.jsp">Add Answer</a>
 			<table>
-			<caption>List of Tickets</caption>
+			<caption>List of Answers</caption>
 			<thead>
 				<tr>
-				<th>Ticket ID</th>
+				<th>Aid</th>
+				<th>Author</th>
 				<th>Title</th>
-				<th>Priority</th>
-				<th>Description</th>
-				<th>Operational Category</th>
-				<th>Impact</th>
+				<th>Content</th>
+				<th>Created_at</th>
+				<th>Updated_at</th>
 				<th></th>
 				</tr>
 			</thead>
@@ -44,28 +51,28 @@
 			</tfoot>
 			<tbody>
 				<%
-				TicketService ticketService = new TicketServiceImpl();
-				ArrayList<Ticket> arrayList = ticketService.getTickets();
+				AnswerService answerService = new AnswerServiceImpl();
+				ArrayList<Answer> arrayList = answerService.getAnswers();
 				
-				for(Ticket ticket : arrayList){
-					int tid = ticket.getId();
+				for(Answer answer : arrayList){
+					int aid = answer.getAid();
 				%>
 				
 				<tr>
-					<td> <%=ticket.getId() %> </td>
-					<td> <%=ticket.getTitle() %> </td>
-					<td> <%=ticket.getPriority() %> </td>
-					<td> <%=ticket.getDescription() %> </td>
-					<td> <%=ticket.getOperatCat() %> </td>
-					<td> <%=ticket.getImpact() %> </td>
+					<td><div class="tdd"> <%=answer.getAid() %> </div></td>
+					<td><div class="tdd"> <%=answer.getAuthor() %> </div></td>
+					<td><div class="tdd"> <%=answer.getTitle() %> </div></td>
+					<td><div class="tdd"> <%=answer.getContent() %> </div></td>
+					<td><div class="tdd"> <%=answer.getCreated_at() %> </div></td>
+					<td><div> class="tdd" <%=answer.getUpdated_at() %> </div></td>
 
-					<td class='select' > 
-					<form method="POST" action="GetTicket">
-						<input type="hidden" value = "<%=ticket.getId() %>" name = "tid">
+					<td class='select' ><div class="tdd">
+					<form method="POST" action="GetAnswer">
+						<input type="hidden" value = "<%=answer.getAid() %>" name = "aid">
 						<input type="submit" value="View">
 					</form>
 
-					</td>	
+					</div></td>	
 					</tr>			
 					
 				<%}%>
@@ -82,15 +89,8 @@
 			</div>
 		</main>
 	</div>
-	
-	<form method="POST" action="GetTicket">
-						<input type = "hidden" value = "tid" name = "tid">
-                        <input type="submit" value="View" class="button">
-                    </form>
-                    <!-- <form method="POST" action="UpdateTicket">
-                    	<input type = "hidden" value = "60" name = "tid">
-                        <input type="submit" value="Update" class="button">
-                    </form> -->
+
+                    
 	<!-- JS -->
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src="js/list.js"></script>

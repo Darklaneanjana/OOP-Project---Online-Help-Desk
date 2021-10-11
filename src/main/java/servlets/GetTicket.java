@@ -32,18 +32,6 @@ public class GetTicket extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("dddddddddddddddddddddddddddddddddddddddd");
-		response.setContentType("text/html");
-		
-		String tid = request.getParameter("tid");
-		tid = "7";
-		System.out.println(tid);
-		TicketService ticketService = new TicketServiceImpl();
-		Ticket ticket = ticketService.getTicketByID(Integer.parseInt(tid));
-
-		request.setAttribute("ticket", ticket);
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-		System.out.println(ticket.getTitle());
 	}
 
 	/**
@@ -52,18 +40,16 @@ public class GetTicket extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("dddddddddddddddddddddddddddddddddddddddd");
+
 		response.setContentType("text/html");
 		
 		String tid = request.getParameter("tid");
-		tid = "7";
-		System.out.println(tid);
+		System.out.println("title " +tid);
 		TicketService ticketService = new TicketServiceImpl();
 		Ticket ticket = ticketService.getTicketByID(Integer.parseInt(tid));
 
 		request.setAttribute("ticket", ticket);
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-		System.out.println(ticket.getTitle());
 	}
 
 }

@@ -72,6 +72,7 @@ public class TicketServiceImpl implements TicketService {
 			preparedStatement.setString(2, ticket.getDescription());
 			preparedStatement.setInt(5, ticket.getOperatCat());
 			preparedStatement.setInt(4, ticket.getImpact());
+			preparedStatement.setInt(7, ticket.getIssue());
 			// Add ticket
 			preparedStatement.execute();
 			connection.commit();
@@ -149,7 +150,9 @@ public class TicketServiceImpl implements TicketService {
 				ticket.setDescription(resultSet.getString(3));
 				ticket.setOperatCat(resultSet.getInt(10));
 				ticket.setImpact(resultSet.getInt(8));
+				ticket.setIssue(resultSet.getInt(13));
 				ticketList.add(ticket);
+				
 			}
 
 		} catch (SQLException | SAXException | IOException | ParserConfigurationException e) {
