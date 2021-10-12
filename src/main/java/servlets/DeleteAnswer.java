@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,12 +42,9 @@ public class DeleteAnswer extends HttpServlet {
 		response.setContentType("text/html");
 
 		String aid = request.getParameter("aid");			
-		
 		AnswerService answerService = new AnswerServiceImpl();
 		answerService.removeAnswer(Integer.parseInt(aid));
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listAnswers.jsp");
-		dispatcher.forward(request, response);
+		getServletContext().getRequestDispatcher("/listAnswers.jsp").forward(request, response);
 	}
 
 }

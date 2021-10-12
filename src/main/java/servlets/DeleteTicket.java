@@ -41,10 +41,8 @@ public class DeleteTicket extends HttpServlet {
 		response.setContentType("text/html");
 
 		String tid = request.getParameter("tid");			
-		
 		TicketService ticketService = new TicketServiceImpl();
 		ticketService.removeTicket(Integer.parseInt(tid));
-
 		getServletContext().getRequestDispatcher("/listTickets.jsp").forward(request, response);
 	}
 

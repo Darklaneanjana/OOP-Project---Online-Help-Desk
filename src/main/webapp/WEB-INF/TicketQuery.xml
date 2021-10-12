@@ -18,54 +18,43 @@
         ]]>
 	</query>
 	<query id="drop_table">
-         <![CDATA[        
-            DROP TABLE IF EXISTS Ticket]]>
+         <![CDATA[DROP TABLE IF EXISTS Ticket]]>
 	</query>
 	<query id="insertTicket">
-        <![CDATA[insert into ticket (title, description, priority,Impact,OperatCat,client_id,issueType)  values (?, ?, ?, ?, ?, ?, ?)
-;      ]]>
+        <![CDATA[insert into ticket (title, description, priority,Impact,OperatCat,client_id,issueType)  values (?, ?, ?, ?, ?, ?, ?);]]>
 	</query>
-
+	<query id="assignTicket">
+        <![CDATA[update ticket set status = 1  where id = ?;]]>
+	</query>
 	<query id="ticketById">
-         <![CDATA[select * from ticket where id  = ?
-    ]]>
+         <![CDATA[select * from ticket where id  = ?]]>
 	</query>
 	<query id="answerById">
-         <![CDATA[select * from knowledgebase where id  = ?
-    ]]>
-
+         <![CDATA[select * from knowledgebase where id  = ?]]>
 	</query>
 	<query id="allTickets">
          <![CDATA[select * from ticket;]]>
 	</query>
+	<query id="allTicketsByUid">
+         <![CDATA[select * from ticket where client_id = ?;]]>
+	</query>
 	<query id="allAnswers">
 		 <![CDATA[select * from knowledgebase;]]>
 	</query>
-
-	<query id="remove_ticket">
+	<query id="removeTicket">
          <![CDATA[        
-            delete from ticket where ticket.id = ?
-        ]]>
+            delete from ticket where id = ?]]>
 	</query>
 	<query id="removeAnswer">
          <![CDATA[        
-            delete from knowledgebase where id = ?
-        ]]>
+            delete from knowledgebase where id = ?]]>
 	</query>
-	
-	<query id="update_Ticket">
-         <![CDATA[update Ticket set title= ?, designation = ?, faculty = ?, e.department = ?, e.add = ?, e.qualifications = ?, e.gender = ?,updated_at = CURRENT_TIMESTAMP          where ticket.id = ?
-        ]]>
+	<query id="updateTicket">
+         <![CDATA[update Ticket set title= ?, description = ?, priority = ?, Impact = ?, OperatCat = ?, issueType = ?, updated_at = CURRENT_TIMESTAMP where ticket.id = ?]]>
 	</query>
 	<query id="update_answer">
-         <![CDATA[update knowledgebase set title= ?, designation = ?, faculty = ?, e.department = ?, e.add = ?, e.qualifications = ?, e.gender = ?,updated_at = CURRENT_TIMESTAMP          where ticket.id = ?
-        ]]>
+         <![CDATA[update knowledgebase set title= ?, designation = ?, faculty = ?, e.department = ?, e.add = ?, e.qualifications = ?, e.gender = ?,updated_at = CURRENT_TIMESTAMP where ticket.id = ?]]>
 	</query>
 
-
-	<query id="ticket_ids">
-         <![CDATA[        
-            select t.tid from Ticket as t]]>
-	</query>
 
 </Querys>

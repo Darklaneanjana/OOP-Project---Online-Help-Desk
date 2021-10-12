@@ -14,13 +14,17 @@ public interface TicketService {
 	//Add ticket to ticket table
 	public void addTicket(Ticket ticket);
 
+	
+	
 	/**
 	 * Get a particular Ticket
 	 * @param tid
 	 * @return Ticket
 	 */
 	public Ticket getTicketByID(int tid);
-
+	
+	
+	public ArrayList<Ticket> getTickets(String uid);
 	/**
 	 * Get all list of tickets
 	 * @return ArrayList<Ticket>
@@ -40,5 +44,7 @@ public interface TicketService {
 	 * @param tid
 	 */
 	public void removeTicket(int tid);
+	
+	public void assignTicket(int tid);
 
 }

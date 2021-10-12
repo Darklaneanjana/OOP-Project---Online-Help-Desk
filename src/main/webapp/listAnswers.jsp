@@ -14,21 +14,21 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 		<title>Answer List</title>
 	</head>
-<!-- <%
+<%
+	System.out.println("list asswer page");
 
-
-	if((session.getAttribute("type") != "analyst") || (session.getAttribute("type") != "admin")) {
+	if((session.getAttribute("type") != "analyst")) {
 		request.setAttribute("error", "You are not authorized");
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
-%> -->
+%>
 <body>
 
 					
 					
 	<div class="container">
 		<main>
-			<a href="index.jsp">Add Answer</a>
+			<a href="answer.jsp">Add Answer</a>
 			<table>
 			<caption>List of Answers</caption>
 			<thead>

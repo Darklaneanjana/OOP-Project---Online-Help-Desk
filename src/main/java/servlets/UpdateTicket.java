@@ -42,21 +42,26 @@ public class UpdateTicket extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+		
+	
+		
+		
 		response.setContentType("text/html");
 
 		Ticket ticket = new Ticket();
-		String employeeID = request.getParameter("employeeID");	
-		ticket.setId(setInt(request.getParameter("ID")));
+		String tid = request.getParameter("tid");
+		ticket.setIssue(setInt(request.getParameter("issue")));
 		ticket.setTitle(request.getParameter("title"));
-		ticket.setPriority(setInt(request.getParameter("Priority")));
-		ticket.setDescription(request.getParameter("Description"));
+		ticket.setPriority(setInt(request.getParameter("priority")));
+		ticket.setDescription(request.getParameter("description"));
 		ticket.setOperatCat(setInt(request.getParameter("OperationalCategory")));
-		ticket.setImpact(setInt(request.getParameter("Impact")));
+		ticket.setImpact(setInt(request.getParameter("impact")));
 		
 		TicketService ticketService = new TicketServiceImpl();
-		ticketService.updateTicket(setInt(employeeID), ticket);
+		ticketService.updateTicket(setInt(tid), ticket);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/ListTickets.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listTickets.jsp");
 		dispatcher.forward(request, response);
 	}
 	private int setInt(String x) {

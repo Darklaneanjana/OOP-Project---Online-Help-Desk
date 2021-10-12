@@ -19,7 +19,7 @@ import util.QueryUtil;
 
 //Implementation of Ticket Service .
 public class TicketServiceImpl implements TicketService {
-
+	int uid;
 	/** Initialize logger */
 	public static final Logger log = Logger.getLogger(TicketServiceImpl.class.getName());
 
@@ -66,7 +66,7 @@ public class TicketServiceImpl implements TicketService {
 
 			// Generate ticket IDs
 //			ticket.setId(tid);
-			preparedStatement.setInt(6, 1);
+			preparedStatement.setInt(6, ticket.getUid());
 			preparedStatement.setString(1, ticket.getTitle());
 			preparedStatement.setInt(3, ticket.getPriority());
 			preparedStatement.setString(2, ticket.getDescription());
@@ -96,6 +96,10 @@ public class TicketServiceImpl implements TicketService {
 		}
 	}
 
+	public ArrayList<Ticket> getTickets(String uid) {
+		this.uid = Integer.parseInt(uid);
+		return actionOnTicket(-1);
+	}
 	
 	/**
 	 * Ticket details can be retrieved based on the provided ticketId
@@ -115,6 +119,8 @@ public class TicketServiceImpl implements TicketService {
 	public ArrayList<Ticket> getTickets() {
 		return actionOnTicket(0);
 	}
+	
+	
 
 	/**
 	 * This performs GET ticket by ID and Display all tickets
@@ -130,6 +136,7 @@ public class TicketServiceImpl implements TicketService {
 
 //			checks whether ticket ID is available
 			if (tid > 0) {
+				System.out.println(11111111);
 				/*
 				 * Get ticket by ID query will be retrieved from TicketQuery.xml
 				 */
@@ -138,7 +145,14 @@ public class TicketServiceImpl implements TicketService {
 			}
 
 //			If ticket ID is not provided for get ticket option it display all tickets
+			else if(tid==(-1)) {
+				System.out.println(2222222);
+				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("allTicketsByUid"));
+				System.out.println(uid);
+				preparedStatement.setInt(1, uid);
+			}
 			else {
+				System.out.println(33333333);
 				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("allTickets"));
 			}
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -190,11 +204,13 @@ public class TicketServiceImpl implements TicketService {
 			try {
 				connection = DBConnect.getDBConnection();
 				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("updateTicket"));
+				preparedStatement.setInt(7, tid);
 				preparedStatement.setString(1, ticket.getTitle());
-				preparedStatement.setInt(2, ticket.getPriority());
-				preparedStatement.setString(3, ticket.getDescription());
-				preparedStatement.setInt(4, ticket.getOperatCat());
-				preparedStatement.setInt(5, ticket.getImpact());
+				preparedStatement.setInt(3, ticket.getPriority());
+				preparedStatement.setString(2, ticket.getDescription());
+				preparedStatement.setInt(5, ticket.getOperatCat());
+				preparedStatement.setInt(4, ticket.getImpact());
+				preparedStatement.setInt(6, ticket.getIssue());
 				preparedStatement.executeUpdate();
 
 			} catch (SQLException | SAXException | IOException | ParserConfigurationException e) {
@@ -232,6 +248,41 @@ public class TicketServiceImpl implements TicketService {
 			try {
 				connection = DBConnect.getDBConnection();
 				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("removeTicket"));
+				preparedStatement.setInt(1, tid);
+				preparedStatement.executeUpdate();
+			} catch (SQLException | SAXException | IOException | ParserConfigurationException e) {
+				log.log(Level.SEVERE, e.getMessage());
+			} finally {
+
+//				 Close prepared statement and database connectivity at the end of transaction
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (SQLException e) {
+					log.log(Level.SEVERE, e.getMessage());
+				}
+			}
+		}
+	}
+	
+	/**
+	 * delete an ticket based on the provided ID
+	 * @param tid - Delete ticket according to the filtered ticket details
+	 */
+	@Override
+	public void assignTicket(int tid) {
+
+		// Before deleting check whether ticket ID is available
+		if (tid > 0) {
+
+//			Remove ticket query will be retrieved from TicketQuery.xml
+			try {
+				connection = DBConnect.getDBConnection();
+				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("assignTicket"));
 				preparedStatement.setInt(1, tid);
 				preparedStatement.executeUpdate();
 			} catch (SQLException | SAXException | IOException | ParserConfigurationException e) {

@@ -8,6 +8,7 @@ public class Ticket implements Serializable {
 
 	private static final long serialVersionUID = -8724714296773581393L;
 	private int tid;
+	private int uid;
 	private int issue;
 	private String title;
 	private int priority;
@@ -133,5 +134,19 @@ public class Ticket implements Serializable {
 
 	public void setIssue(int issue) {
 		this.issue = issue;
+	}
+
+	/**
+	 * @return the uid
+	 */
+	public int getUid() {
+		return uid;
+	}
+
+	/**
+	 * @param uid the uid to set
+	 */
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 }

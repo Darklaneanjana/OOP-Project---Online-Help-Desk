@@ -49,7 +49,8 @@ public class GetTicket extends HttpServlet {
 		Ticket ticket = ticketService.getTicketByID(Integer.parseInt(tid));
 
 		request.setAttribute("ticket", ticket);
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		request.setAttribute("type", "ticketDisplay");
+		getServletContext().getRequestDispatcher("/ticket.jsp").forward(request, response);
 	}
 
 }

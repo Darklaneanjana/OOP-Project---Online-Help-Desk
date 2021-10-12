@@ -20,13 +20,7 @@
 
 
 </head>
-<%
-            System.out.println("answer page");
-            session.setAttribute("uid", 1);      //set attribute in session
-            session.setAttribute("type", "user");
-            System.out.println(session.getAttribute("type"));
 
-    %>
 <%
 		 	
 			int aid = 0;
@@ -132,7 +126,7 @@
 				
 
 			</div>
-			<% if ((session.getAttribute("type") == "user") && (session.getAttribute("type") != null)){%>
+			<% if ((session.getAttribute("type") == "analyst") && (session.getAttribute("type") != null)){%>
 				<form method="POST" class="create" id="create" style="margin-top:;" action="UpdateAnswer">
                     <input type="hidden" name = "aid" value="<%=aid%>">
                     <div class="form-submit">

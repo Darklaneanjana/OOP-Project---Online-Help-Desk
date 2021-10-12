@@ -16,7 +16,7 @@
 	</head>
 
 <body>
-
+<jsp:include page="header.jsp"></jsp:include>
 					
 					
 	<div class="container">
@@ -44,8 +44,13 @@
 			</tfoot>
 			<tbody>
 				<%
+				ArrayList<Ticket> arrayList;
 				TicketService ticketService = new TicketServiceImpl();
-				ArrayList<Ticket> arrayList = ticketService.getTickets();
+				if(session.getAttribute("type") == "user"){
+				arrayList = ticketService.getTickets(session.getAttribute("uid").toString());
+				}else{
+					arrayList = ticketService.getTickets();
+				}
 				
 				for(Ticket ticket : arrayList){
 					int tid = ticket.getId();

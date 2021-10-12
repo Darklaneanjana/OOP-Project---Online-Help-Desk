@@ -5,6 +5,9 @@
 <title>Header</title>
 </head>
 <body>
-Header
+<h1>
+<%=session.getAttribute("uid")%>
+<%=session.getAttribute("type")%>
+</h1>
 </body>
 </html>
