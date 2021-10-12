@@ -29,6 +29,7 @@
 			String created_at = "";
 			String updated_at = "";
 			String content = "";
+			if(request.getAttribute("answer")!=null){
 				Answer answer = (Answer) request.getAttribute("answer");
 				aid = answer.getAid();
 				author = answer.getAuthor();
@@ -36,7 +37,10 @@
 				content = answer.getContent();
 				created_at = (answer.getCreated_at()).toString();
 				updated_at = (answer.getUpdated_at()).toString();
-				
+			}
+			if(request.getAttribute("answer")==null){
+				author = (Integer) session.getAttribute("uid");
+			}
 
 		%>
 	
@@ -55,7 +59,22 @@
 								<div class="knowledge-single">
 								
 									<div class="knowledge-header">
-										<h3 class="title"><%=title%></h3>
+								
+									
+			<% if ((session.getAttribute("type") == "analyst") && (session.getAttribute("type") != null)){%>
+				<form method="POST" class="create" id="create" style="margin-top:;" action="<%= (request.getAttribute("answer") == null) ? "AddAnswer": "UpdateAnswer" %>">
+			<%} %>
+					
+			<%= (session.getAttribute("type") == "user") ? "<h3 class=\"title\">": "<input type=\"text\"  name=\"title\" id=\"title\" " %><%=title%>
+			<%= (session.getAttribute("type") == "user") ? "</h3>":"/>" %>
+			
+			<script>
+                    document.getElementById("title").defaultValue = "<%=title%>";
+             </script>	
+             	
+							
+										
+										
 										<ul class="knowledge-meta">
 											<li>Created: <a
 												href="#"><%=created_at%></a></li>
@@ -75,9 +94,22 @@
 										</div>
 									</div>
 									
+									
+									
+									
 									<div class="know-single-item">
-										<%=content%>
+									
+									<%= (session.getAttribute("type") == "user") ? " ": "<input type=\"text\"  name=\"content\" id=\"content\" " %><%=content%>
+									<%= (session.getAttribute("type") == "user") ? " ":"/>" %>
+			
+									<script>
+						                    document.getElementById("content").defaultValue = "<%=content%>";
+						             </script>	
+										
 									</div>
+									
+									
+									
 									
 								</div>
 							</div>
@@ -127,21 +159,17 @@
 
 			</div>
 			<% if ((session.getAttribute("type") == "analyst") && (session.getAttribute("type") != null)){%>
-				<form method="POST" class="create" id="create" style="margin-top:;" action="UpdateAnswer">
-				
-				
-				
-					<input type="hidden" name = "content" value="Hello How Are You">
-					<input type="hidden" name = "title" value="Im Fine">
+
+					<input type="hidden" name = "author" value="<%=author%>">
                     <input type="hidden" name = "aid" value="<%=aid%>">
                     <div class="form-submit">
                     	<input type="submit" value="UpdateAnswer" class="submitt" id="submit" name="submit" style="background: rgb(54, 128, 2);"/>
 					</div>
                 </form>
+                <%} %>
                 
-                
+                <% if ((session.getAttribute("type") == "analyst") && (session.getAttribute("type") != null)){%>
                 <form method="POST" class="create" id="create" style="margin-top: ;" action="DeleteAnswer">
-                <%=aid%>
   					<input type="hidden" name = "aid" value="<%=aid%>">
                     <div class="form-submit">
                     	<input type="submit" value="Delete Answer" class="submitt" id="submit" name="submit" style="background: rgb(250, 33, 33);"/>

@@ -38,17 +38,13 @@ public class AddAnswer extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		response.setContentType("text/html");
 		Answer answer = new Answer();
 		answer.setTitle(request.getParameter("title"));
 		answer.setAuthor(setInt(request.getParameter("author")));
-		answer.setContent(request.getParameter("Description"));
-//		answer.setCreated_at(request.getParameter("time"));
-//		answer.setUpdated_at(request.getParameter("time"));
+		answer.setContent(request.getParameter("content"));
 
-
-		
+	
 		AnswerService answerService = new AnswerServiceImpl();
 		answerService.addAnswer(answer);
 

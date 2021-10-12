@@ -19,7 +19,7 @@
         optCat : {
             required: true,
         },
-        company : {
+        title : {
             required: true
         },
         email : {

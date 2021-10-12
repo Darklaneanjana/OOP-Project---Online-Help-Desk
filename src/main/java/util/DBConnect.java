@@ -34,7 +34,6 @@ public class DBConnect extends CommonUtil {
 //		 Create new connection objects when connection is closed or null
     	try {
 	    	if (con == null || con.isClosed()) {
-	    		System.out.println(properties.getProperty(CommonConstants.DRIVER_NAME));
 	    					Class.forName(properties.getProperty(CommonConstants.DRIVER_NAME));
 	    					con = DriverManager.getConnection(properties.getProperty(CommonConstants.URL),properties.getProperty(CommonConstants.USERNAME), properties.getProperty(CommonConstants.PASSWORD));
 	    				}

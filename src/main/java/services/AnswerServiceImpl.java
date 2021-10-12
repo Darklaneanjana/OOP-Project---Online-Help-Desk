@@ -13,7 +13,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 import model.Answer;
-//import util.CommonConstants;
 import util.DBConnect;
 import util.QueryUtil;
 
@@ -64,12 +63,9 @@ public class AnswerServiceImpl implements AnswerService {
 			preparedStatement = connection.prepareStatement(QueryUtil.queryByID("insertAnswer"));
 			connection.setAutoCommit(false);
 
-			preparedStatement.setInt(6, 1);
-			preparedStatement.setString(1, answer.getTitle());
-			preparedStatement.setInt(3, answer.getAuthor());
-			preparedStatement.setString(2, answer.getContent());
-			preparedStatement.setTimestamp(5, answer.getCreated_at());
-			preparedStatement.setTimestamp(4, answer.getUpdated_at());
+			preparedStatement.setString(2, answer.getTitle());
+			preparedStatement.setInt(1, answer.getAuthor());
+			preparedStatement.setString(3, answer.getContent());
 
 			// Add answer
 			preparedStatement.execute();
@@ -179,23 +175,21 @@ public class AnswerServiceImpl implements AnswerService {
 	 */
 	@Override
 	public Answer updateAnswer(int aid, Answer answer) {
-		System.out.println(aid);
-		System.out.println(answer.getTitle());
-		System.out.println(answer.getContent());
-//		checks whether answer ID is valid
+
+//		checks whether ticket ID is valid
 		if (aid > 0) {
 			/*
-			 * Update answer query will be retrieved from AnswerQuery.xml
+			 * Update ticket query will be retrieved from TicketQuery.xml
 			 */
 			try {
 				connection = DBConnect.getDBConnection();
-				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("updateAnswer"));
+				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("updateAnswerdddddd"));
+				preparedStatement.setInt(3, aid);
+
 				preparedStatement.setString(1, answer.getTitle());
 				preparedStatement.setString(2, answer.getContent());
-				preparedStatement.setInt(3, aid);
 				preparedStatement.executeUpdate();
 
-			
 			} catch (SQLException | SAXException | IOException | ParserConfigurationException e) {
 				log.log(Level.SEVERE, e.getMessage());
 			} finally {
@@ -212,7 +206,7 @@ public class AnswerServiceImpl implements AnswerService {
 				}
 			}
 		}
-		// Get the updated answer
+		// Get the updated ticket
 		return getAnswerByID(aid);
 	}
 

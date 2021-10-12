@@ -10,6 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/style-ul.css">
 		<link rel="stylesheet" href="css/list.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 		<title>Answer List</title>
@@ -17,7 +18,7 @@
 <%
 	System.out.println("list asswer page");
 
-	if((session.getAttribute("type") != "analyst")) {
+	if((session.getAttribute("type") == "aaanalyst")) {
 		request.setAttribute("error", "You are not authorized");
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
@@ -64,10 +65,11 @@
 					<td><div class="tdd"> <%=answer.getTitle() %> </div></td>
 					<td><div class="tdd"> <%=answer.getContent() %> </div></td>
 					<td><div class="tdd"> <%=answer.getCreated_at() %> </div></td>
-					<td><div> class="tdd" <%=answer.getUpdated_at() %> </div></td>
+					<td><div class="tdd"> <%=answer.getUpdated_at() %> </div></td>
 
 					<td class='select' ><div class="tdd">
 					<form method="POST" action="GetAnswer">
+						<input type="hidden" value = "view" name = "answerType">
 						<input type="hidden" value = "<%=answer.getAid() %>" name = "aid">
 						<input type="submit" value="View">
 					</form>

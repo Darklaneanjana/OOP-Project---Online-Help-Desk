@@ -17,11 +17,17 @@
 			)
         ]]>
 	</query>
+	<query id="searchAnswers">
+		 <![CDATA[select * from knowledgebase where title like '%?%';]]>
+	</query>
 	<query id="drop_table">
          <![CDATA[DROP TABLE IF EXISTS Ticket]]>
 	</query>
 	<query id="insertTicket">
         <![CDATA[insert into ticket (title, description, priority,Impact,OperatCat,client_id,issueType)  values (?, ?, ?, ?, ?, ?, ?);]]>
+	</query>
+	<query id="insertAnswer">
+        <![CDATA[insert into knowledgebase (author, title, content)  values (?, ?, ?);]]>
 	</query>
 	<query id="assignTicket">
         <![CDATA[update ticket set status = 1  where id = ?;]]>

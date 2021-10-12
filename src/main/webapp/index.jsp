@@ -10,7 +10,7 @@
 			<%
             System.out.println("index page");
             session.setAttribute("uid", 2);      //set attribute in session
-            session.setAttribute("type", "analyst");
+            session.setAttribute("type", "user");
             %>
             
 <body>

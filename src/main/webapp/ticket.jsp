@@ -6,14 +6,32 @@
 <head>
     <title>Create Ticket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <style>
+  #result {
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index: 1001;
+  }
+  .link-class:hover{
+   background-color:#f1f1f1;
+  }
+  </style>
+    
 </head>
 <body>
 
 
 <div class="main">
+<jsp:include page="header.jsp"></jsp:include>
 		<%
         String imgh1 = request.getParameter("imgh1");
         String imgp = request.getParameter("imgp");
@@ -39,7 +57,6 @@
             </div>
             <div class="ticket-form">
 
-<span style="color: black;">
 
 					
 		<%
@@ -59,22 +76,25 @@
 				issue = ticket.getIssue();
 				operationalCategory = ticket.getOperatCat();
 				description = ticket.getDescription();
-				
-				
 			}
 		%>
-		<jsp:include page="header.jsp"></jsp:include>
-	<%=title%>
-	<%=operationalCategory%>
-	<%=priority%>
-    <%=impact%>
-	<%=issue%>
-    <%=description%>
-	
-</span>
+		
+
+
                 <form method="POST" class="create" id="create" action="<%= (session.getAttribute("type") == "user") ? "AddTicket": "UpdateTicket" %>">
                     <div class="form-row">
                         <div class="form-group">
+                        
+                        
+                        
+	
+    <label for="" class="" style="color:#447">Search Answers</label>
+    <br>
+   <div align="center">
+    <input type="text" name="search" id="search" placeholder="Search Employee Details" class="form-control" />
+   </div>
+   <ul class="list-group" id="result"></ul>
+   <br><br><br>
 
                             <div class="form-select">
                                 <div class="label-flex">
@@ -304,3 +324,31 @@
 <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+ $.ajaxSetup({ cache: false });
+ $('#search').keyup(function(){
+  $('#result').html('');
+  $('#state').val('');
+  var searchField = $('#search').val();
+  var expression = new RegExp(searchField, "i");
+  
+  
+  
+  $.getJSON("${pageContext.request.contextPath}/data.json", function(data) {
+   $.each(data, function(key, value){
+    if (value.title.search(expression) != -1 || value.content.search(expression) != -1)
+    {
+     $('#result').append('<a href = "GetAnswer?aid='+value.id+'"><li class="list-group-item link-class">'+value.title+' | <span class="text-muted">'+value.content+'</span></li></a>');
+    }
+   });   
+  });
+ });
+ 
+ $('#result').on('click', 'li', function() {
+  var click_text = $(this).text().split('|');
+  $('#search').val($.trim(click_text[0]));
+  $("#result").html('');
+ });
+});
+</script>

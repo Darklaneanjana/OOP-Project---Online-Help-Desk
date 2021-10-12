@@ -32,6 +32,12 @@ public class GetAnswer extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException { 
+		String aid = request.getParameter("aid");
+		AnswerService answerService = new AnswerServiceImpl();
+		Answer answer = answerService.getAnswerByID(Integer.parseInt(aid));
+
+		request.setAttribute("answer", answer);
+		getServletContext().getRequestDispatcher("/answer.jsp").forward(request, response);
 	}
 
 	/**
