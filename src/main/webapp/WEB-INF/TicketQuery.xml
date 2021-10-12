@@ -52,8 +52,8 @@
 	<query id="updateTicket">
          <![CDATA[update Ticket set title= ?, description = ?, priority = ?, Impact = ?, OperatCat = ?, issueType = ?, updated_at = CURRENT_TIMESTAMP where ticket.id = ?]]>
 	</query>
-	<query id="update_answer">
-         <![CDATA[update knowledgebase set title= ?, designation = ?, faculty = ?, e.department = ?, e.add = ?, e.qualifications = ?, e.gender = ?,updated_at = CURRENT_TIMESTAMP where ticket.id = ?]]>
+	<query id="updateAnswer">
+         <![CDATA[update knowledgebase set title= ?, content = ?,  updated_at = CURRENT_TIMESTAMP where id = ?]]>
 	</query>
 
 

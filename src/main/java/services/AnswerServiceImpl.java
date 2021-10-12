@@ -179,7 +179,9 @@ public class AnswerServiceImpl implements AnswerService {
 	 */
 	@Override
 	public Answer updateAnswer(int aid, Answer answer) {
-
+		System.out.println(aid);
+		System.out.println(answer.getTitle());
+		System.out.println(answer.getContent());
 //		checks whether answer ID is valid
 		if (aid > 0) {
 			/*
@@ -189,10 +191,8 @@ public class AnswerServiceImpl implements AnswerService {
 				connection = DBConnect.getDBConnection();
 				preparedStatement = connection.prepareStatement(QueryUtil.queryByID("updateAnswer"));
 				preparedStatement.setString(1, answer.getTitle());
-				preparedStatement.setInt(2, answer.getAuthor());
-				preparedStatement.setString(3, answer.getContent());
-				preparedStatement.setTimestamp(4, answer.getCreated_at());
-				preparedStatement.setTimestamp(5, answer.getUpdated_at());
+				preparedStatement.setString(2, answer.getContent());
+				preparedStatement.setInt(3, aid);
 				preparedStatement.executeUpdate();
 
 			

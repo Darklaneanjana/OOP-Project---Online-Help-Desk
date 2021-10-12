@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Ticket;
-import services.TicketServiceImpl;
 import services.TicketService;
+import services.TicketServiceImpl;
+
 
 //Update Ticket servlet
 @WebServlet("/UpdateTicket")
@@ -41,12 +42,7 @@ public class UpdateTicket extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		
-		
-	
-		
-		
+			
 		response.setContentType("text/html");
 
 		Ticket ticket = new Ticket();

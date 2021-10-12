@@ -58,9 +58,9 @@
 										<h3 class="title"><%=title%></h3>
 										<ul class="knowledge-meta">
 											<li>Created: <a
-												href="http://pixner.net/deskoto/main/knowledge-based-single.html#0"><%=created_at%></a></li>
+												href="#"><%=created_at%></a></li>
 											<li>Updated: <a
-												href="http://pixner.net/deskoto/main/knowledge-based-single.html#0"><%=updated_at%></a></li>
+												href="#"><%=updated_at%></a></li>
 										</ul>
 									</div>
 									
@@ -128,6 +128,11 @@
 			</div>
 			<% if ((session.getAttribute("type") == "analyst") && (session.getAttribute("type") != null)){%>
 				<form method="POST" class="create" id="create" style="margin-top:;" action="UpdateAnswer">
+				
+				
+				
+					<input type="hidden" name = "content" value="Hello How Are You">
+					<input type="hidden" name = "title" value="Im Fine">
                     <input type="hidden" name = "aid" value="<%=aid%>">
                     <div class="form-submit">
                     	<input type="submit" value="UpdateAnswer" class="submitt" id="submit" name="submit" style="background: rgb(54, 128, 2);"/>

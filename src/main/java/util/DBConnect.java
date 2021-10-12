@@ -7,7 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
 //This is the Database connection creation class .
 
 public class DBConnect extends CommonUtil {
@@ -42,8 +41,6 @@ public class DBConnect extends CommonUtil {
 	    	}
         
         catch (Exception e) {
-			System.out.println("22222222222222222222222222hellodfssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-
             System.out.println(e);
             log.log(Level.SEVERE, e.getMessage());
         }

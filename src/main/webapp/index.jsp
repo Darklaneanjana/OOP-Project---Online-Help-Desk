@@ -6,11 +6,13 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<%
+
+			<%
             System.out.println("index page");
             session.setAttribute("uid", 2);      //set attribute in session
             session.setAttribute("type", "analyst");
             %>
+            
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <a href="ticket.jsp">Add Ticket</a>

@@ -43,20 +43,16 @@ public class UpdateAnswer extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-
+	
 		Answer answer = new Answer();
-		String aid = request.getParameter("employeeID");	
-		answer.setAid(setInt(request.getParameter("ID")));
+		String aid = request.getParameter("aid");	
 		answer.setTitle(request.getParameter("title"));
-		answer.setAuthor(setInt(request.getParameter("author")));
-		answer.setContent(request.getParameter("Description"));
-//		answer.setCreated_at(request.getParameter("time"));
-//		answer.setUpdated_at(request.getParameter("time"));
+		answer.setContent(request.getParameter("content"));
 		
-		AnswerService ticketService = new AnswerServiceImpl();
-		ticketService.updateAnswer(setInt(aid), answer);
+		AnswerService answerService = new AnswerServiceImpl();
+		answerService.updateAnswer(setInt(aid), answer);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/ListAnswers.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listAnswers.jsp");
 		dispatcher.forward(request, response);
 	}
 	private int setInt(String x) {
