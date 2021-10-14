@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Querys>
-
-	<!-- Create table employee Query -->
-	<query id="create_employee_table">
-        <![CDATA[
-            CREATE TABLE employee(
-				employeeID varchar(10) not null,
-				employeeName varchar(20),
-				designation varchar(15),
-				faculty varchar(15),
-				department varchar(15),
-				address  varchar(50),
-				qualifications varchar(20),
-				gender varchar(10) DEFAULT 'Male',
-				primary key (employeeID)
-			)
-        ]]>
 	</query>
 	<query id="searchAnswers">
 		 <![CDATA[select * from knowledgebase where title like '%?%';]]>
@@ -39,7 +23,7 @@
          <![CDATA[select * from knowledgebase where id  = ?]]>
 	</query>
 	<query id="allTickets">
-         <![CDATA[select * from ticket;]]>
+         <![CDATA[select * from ticket order BY status;]]>
 	</query>
 	<query id="allTicketsByUid">
          <![CDATA[select * from ticket where client_id = ?;]]>

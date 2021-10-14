@@ -14,6 +14,7 @@ public class Ticket implements Serializable {
 	private int priority;
 	private int impact;
 	private int operatCat;
+	private int status;
 	private String description;
 	
 	public Ticket() {
@@ -29,7 +30,6 @@ public class Ticket implements Serializable {
 	 * @param description
 	 */
 	public Ticket(int tid, String title, int priority, int impact, int operatCat, String description) {
-//		super();
 		this.tid = tid;
 		this.title = title;
 		this.priority = priority;
@@ -149,4 +149,21 @@ public class Ticket implements Serializable {
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
+
+	/**
+	 * @return the status
+	 */
+	public int getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+
+
 }

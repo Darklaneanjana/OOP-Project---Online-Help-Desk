@@ -1,9 +1,17 @@
 package model;
 
+//Java Beans
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Answer {
+
+public class Answer implements Serializable{
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7385482099062975347L;
 	private int aid;
 	private int author;
 	private String title;
@@ -11,6 +19,18 @@ public class Answer {
 	private Timestamp created_at;
 	private Timestamp updated_at;
 
+public Answer() {
+		
+	}
+	public Answer(int aid, int author, String title, String content, Timestamp created_at, Timestamp updated_at) {
+		this.aid = aid;
+		this.author = author;
+		this.title = title;
+		this.content = content;
+		this.created_at = created_at;
+		this.updated_at = updated_at;
+	}
+	
 	public int getAid() {
 		return aid;
 	}

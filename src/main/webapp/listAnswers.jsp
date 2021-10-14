@@ -29,7 +29,7 @@
 					
 	<div class="container">
 		<main>
-			<a href="answer.jsp">Add Answer</a>
+			<a style="font-weight:500;color: aliceblue;" href="answer.jsp">Add Answer</a>
 			<table>
 			<caption>List of Answers</caption>
 			<thead>

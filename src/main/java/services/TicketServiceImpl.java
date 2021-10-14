@@ -165,6 +165,7 @@ public class TicketServiceImpl implements TicketService {
 				ticket.setOperatCat(resultSet.getInt(10));
 				ticket.setImpact(resultSet.getInt(8));
 				ticket.setIssue(resultSet.getInt(13));
+				ticket.setStatus(resultSet.getInt(15));
 				ticketList.add(ticket);
 				
 			}

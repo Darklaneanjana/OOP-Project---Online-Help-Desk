@@ -10,7 +10,7 @@
 			<%
             System.out.println("index page");
             session.setAttribute("uid", 2);      //set attribute in session
-            session.setAttribute("type", "user");
+            session.setAttribute("type", "analyst");
             %>
             
 <body>
@@ -19,6 +19,7 @@
 <form method="POST" action="ListTicket" class="close">
     <input type="submit" value="List All Tickets">
 </form>
+
 <form method="POST" action="ListAnswer" class="">
                 	<input type="hidden" name = "userType" value="<%=session.getAttribute("type")%>">
                     <input type="submit" value="List All Answerss">

@@ -65,8 +65,13 @@
 				<form method="POST" class="create" id="create" style="margin-top:;" action="<%= (request.getAttribute("answer") == null) ? "AddAnswer": "UpdateAnswer" %>">
 			<%} %>
 					
-			<%= (session.getAttribute("type") == "user") ? "<h3 class=\"title\">": "<input type=\"text\"  name=\"title\" id=\"title\" " %><%=title%>
-			<%= (session.getAttribute("type") == "user") ? "</h3>":"/>" %>
+			<%= (session.getAttribute("type") == "user") ? "<h3 class=\"title\">": "<input type=\"text\" name=\"title\" id=\"title\" " %>
+			
+			<% if ((session.getAttribute("type") == "user") && (session.getAttribute("type") != null)){%>
+				<%=title%>
+			<%} %>
+			
+			<%= (session.getAttribute("type") == "user") ? "</h3>":"/></textarea>" %>
 			
 			<script>
                     document.getElementById("title").defaultValue = "<%=title%>";
@@ -99,8 +104,12 @@
 									
 									<div class="know-single-item">
 									
-									<%= (session.getAttribute("type") == "user") ? " ": "<input type=\"text\"  name=\"content\" id=\"content\" " %><%=content%>
-									<%= (session.getAttribute("type") == "user") ? " ":"/>" %>
+									<%= (session.getAttribute("type") == "user") ? " ": "<textarea  name=\"content\" id=\"content\" " %>
+									
+									<% if ((session.getAttribute("type") == "user") && (session.getAttribute("type") != null)){%>
+										<%=content%>
+									<%} %>
+									<%= (session.getAttribute("type") == "user") ? " ":"/></textarea>" %>
 			
 									<script>
 						                    document.getElementById("content").defaultValue = "<%=content%>";
@@ -120,14 +129,14 @@
 											<div class="author">
 												<div class="author-thumb">
 													<a
-														href="http://pixner.net/deskoto/main/knowledge-based-single.html#0"><img
+														href="#"><img
 														src="./images/01.png" alt="cate"></a>
 												</div>
 												<div class="author-content">
 													<span class="by">Article by</span>
 													<h5 class="subtitle">
 														<a
-															href="http://pixner.net/deskoto/main/knowledge-based-single.html#0"><%=author%></a>
+															href="#"><%=author%></a>
 													</h5>
 												</div>
 											</div>
@@ -139,7 +148,7 @@
 												<h5 class="title">Can't find what you are looking for?</h5>
 												<p>Answer eka hari yann nettn kiyanna awlk na.</p>
 												<a
-													href="http://pixner.net/deskoto/main/knowledge-based-single.html#0"
+													href="#"
 													class="call-button">Contact us</a>
 											</div>
 										</div>

@@ -161,7 +161,7 @@
 
                             <div class="form-radio">
                                 <div class="label-flex">
-                                    <label id="priority" label for="priority">Priority</label>
+                                    <label id="priority"  for="priority">Priority</label>
                                 </div>
                                 <div class="form-radio-group">
                                     <div class="form-radio-item">
@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                             </div>
-
+							<input type = "hidden" name = "priority" value = 4>
                             <br>
                             <div class="form-select">
                                 <div class="label-flex">

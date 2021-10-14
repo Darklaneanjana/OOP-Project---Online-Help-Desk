@@ -63,7 +63,8 @@
 					<td> <%=ticket.getPriority() %> </td>
 					<td> <%=ticket.getDescription() %> </td>
 					<td> <%=ticket.getOperatCat() %> </td>
-					<td> <%=ticket.getImpact() %> </td>
+					<td> <%=ticket.getImpact()  %></td>
+					<td style="background-color: <%=(ticket.getStatus()==0) ? "red" : "green"%>;">  </td>
 
 					<td class='select' > 
 					<form method="POST" action="GetTicket">
@@ -89,14 +90,8 @@
 		</main>
 	</div>
 	
-	<form method="POST" action="GetTicket">
-						<input type = "hidden" value = "tid" name = "tid">
-                        <input type="submit" value="View" class="button">
-                    </form>
-                    <!-- <form method="POST" action="UpdateTicket">
-                    	<input type = "hidden" value = "60" name = "tid">
-                        <input type="submit" value="Update" class="button">
-                    </form> -->
+
+                    
 	<!-- JS -->
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src="js/list.js"></script>

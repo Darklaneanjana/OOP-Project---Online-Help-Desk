@@ -43,15 +43,14 @@ public class AddTicket extends HttpServlet {
         Ticket ticket = new Ticket();
         ticket.setUid(setInt(request.getParameter("uid")));
         ticket.setIssue(setInt(request.getParameter("issue")));
+        
         ticket.setTitle(request.getParameter("title"));
         ticket.setPriority(setInt(request.getParameter("priority")));
         ticket.setDescription(request.getParameter("description"));
         ticket.setOperatCat(setInt(request.getParameter("OperationalCategory")));
         ticket.setImpact(setInt(request.getParameter("impact")));
-
         TicketService ticketService = new TicketServiceImpl();
         ticketService.addTicket(ticket);
-
         request.setAttribute("ticket", ticket);
         getServletContext().getRequestDispatcher("/listTickets.jsp").forward(request, response);
     }
