@@ -32,8 +32,8 @@ Here are some Screenshots.
 ### Edit Answer
 ![Screenshot 2021-10-17 123453](https://user-images.githubusercontent.com/23092020/137616148-4664e7a2-9bf9-42ea-a184-c97864419718.png)
 
-### Edit Answer
+### List Ticket
 ![Screenshot 2021-10-17 123250](https://user-images.githubusercontent.com/23092020/137616145-0439e0d8-32b1-4782-90be-a94efeddf31f.png)
 
-### Edit Answer
+### List Answer
 ![Screenshot 2021-10-17 123345](https://user-images.githubusercontent.com/23092020/137616147-fc26fbd6-bdd2-4962-8463-5d4de8119126.png)
