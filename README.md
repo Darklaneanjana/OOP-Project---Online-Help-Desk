@@ -1,6 +1,6 @@
 # OOP-Project---Online-Help-Desk
 
-1. Fully functional help desk project, But TIcket and Knowledge base are available in this project.
+1. Fully functional help desk project, But only TIcket and Knowledge base are available in this project.
 2. have used User and Analyst as the main two types of users.
 3. The index page will set sessions according to the user type.
 4. Contents are web pages will be changed according to the session("type") and if/else would did the trick.
@@ -13,8 +13,27 @@
 
 
 Here are some Screenshots.
-![Screenshot 2021-05-19 at 21 43 49](https://user-images.githubusercontent.com/72795289/118849447-610e0200-b8ed-11eb-82f7-40425c8cc28b.png)
-![Screenshot 2021-05-19 at 21 43 49](https://user-images.githubusercontent.com/72795289/118849447-610e0200-b8ed-11eb-82f7-40425c8cc28b.png)
-![Screenshot 2021-05-19 at 21 43 49](https://user-images.githubusercontent.com/72795289/118849447-610e0200-b8ed-11eb-82f7-40425c8cc28b.png)
-![Screenshot 2021-05-19 at 21 43 49](https://user-images.githubusercontent.com/72795289/118849447-610e0200-b8ed-11eb-82f7-40425c8cc28b.png)
-![Screenshot 2021-05-19 at 21 43 49](https://user-images.githubusercontent.com/72795289/118849447-610e0200-b8ed-11eb-82f7-40425c8cc28b.png)
+
+### Add Ticket
+![Screenshot 2021-10-17 124725](https://user-images.githubusercontent.com/23092020/137616154-f6b09bf5-2308-4cf5-b3c2-c26893f21aae.png)
+
+### View Ticket
+![Screenshot 2021-10-17 124502](https://user-images.githubusercontent.com/23092020/137616150-dc6b7870-b918-4382-b11b-28b633962982.png)
+
+### Analyst - Ticket
+![Screenshot 2021-10-17 124616](https://user-images.githubusercontent.com/23092020/137616152-1a67814a-49e8-46fb-8eaf-62b89f5ab7c9.png)
+
+### Add Answer
+![Screenshot 2021-10-17 124823](https://user-images.githubusercontent.com/23092020/137616156-a2572efc-b694-4f39-a0ca-56984526f464.png)
+
+### View Answer
+![Screenshot 2021-10-17 124132](https://user-images.githubusercontent.com/23092020/137616149-ee00c742-3ee3-44da-9d97-dfc4b1612979.png)
+
+### Edit Answer
+![Screenshot 2021-10-17 123453](https://user-images.githubusercontent.com/23092020/137616148-4664e7a2-9bf9-42ea-a184-c97864419718.png)
+
+### Edit Answer
+![Screenshot 2021-10-17 123250](https://user-images.githubusercontent.com/23092020/137616145-0439e0d8-32b1-4782-90be-a94efeddf31f.png)
+
+### Edit Answer
+![Screenshot 2021-10-17 123345](https://user-images.githubusercontent.com/23092020/137616147-fc26fbd6-bdd2-4962-8463-5d4de8119126.png)
