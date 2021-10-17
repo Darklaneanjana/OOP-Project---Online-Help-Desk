@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Querys>
-	</query>
+
 	<query id="searchAnswers">
 		 <![CDATA[select * from knowledgebase where title like '%?%';]]>
 	</query>

@@ -60,7 +60,7 @@
 				<tr>
 					<td> <%=ticket.getId() %> </td>
 					<td> <%=ticket.getTitle() %> </td>
-					<td> <%=ticket.getPriority() %> </td>
+					<td style="background-color: rgba(255, 0, 0, <%=ticket.getPriority() *0.2%>);"> <%=ticket.getPriority() %> </td>
 					<td> <%=ticket.getDescription() %> </td>
 					<td> <%=ticket.getOperatCat() %> </td>
 					<td> <%=ticket.getImpact()  %></td>
